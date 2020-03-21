@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}" /> 
+	<aura:attribute name="isFlowEnabled" type="Boolean"/>
+    <lightning:card title = "{!$Label.c.AccountPageFlowCardTitle}">
+        <lightning:flow aura:id="FastContactFlow"/>
+        <aura:if isTrue = "{v.isFlowEnabled}">	
+            <ui:message title="Warning" severity="warning" closable="false">
+                {!$Label.c.Message}
+            </ui:message>
+        </aura:if> 
+    </lightning:card>
+</aura:component>

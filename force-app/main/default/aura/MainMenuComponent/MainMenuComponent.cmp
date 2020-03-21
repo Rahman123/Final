@@ -1,0 +1,17 @@
+<aura:component >
+
+    <aura:registerEvent name = "mapOpened" type = "c:OutletsMapOpenedEvent" />
+
+    <div class="slds-box">
+        <lightning:buttonMenu aura:id="id" label="{!$Label.c.Currency}" onselect="{! c.foo }" variant="border" alternativeText="Show menu">
+            <lightning:menuItem value="USD" label="Russian" />
+            <lightning:menuItem value="RUB" label="English" />
+        </lightning:buttonMenu>
+        <lightning:buttonMenu aura:id="id" label="{!$Label.c.Language}" onselect="{! c.foo }" variant="border" alternativeText="Show menu">
+            <lightning:menuItem value="Russian" label="Russian" />
+            <lightning:menuItem value="English" label="English" />
+        </lightning:buttonMenu>
+        <lightning:button label="{!$Label.c.AboutUs}" onclick = "{!c.aboutUsClicked}"/>
+        <lightning:button label="{!$Label.c.Compare}"/>
+    </div>
+</aura:component>

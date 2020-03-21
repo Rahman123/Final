@@ -1,0 +1,33 @@
+<aura:component controller = "ProductManager">
+    
+    <aura:handler name = "init" value = "{!this}" action="{!c.init}"/>
+    <aura:handler name = "onProductsListChange" value = "{!v.productsList}" action="{!c.firstPage}"/>
+    <aura:registerEvent name = "pageTurnedEvent" type="c:TurnPageEvent" />
+
+    <aura:attribute name="productsList" type="List"/>
+
+    <aura:attribute name="pageSize" type="Integer" default="2" />
+    <aura:attribute name="totalSize" type="Integer"/>
+    <aura:attribute name="offset" type="Integer" default="1" />
+    
+    <c:DisplayProductsListComponent productsList = "{!v.productsList}"/>
+        <div class = "slds-grid ">
+            <div class = "slds-col ">
+                <div id = "leftAlligment">
+                    <lightning:button label="First"  onclick="{!c.firstPage}" />
+                </div>
+            </div>
+            <div class = "slds-col">    
+                <div id = "slds-align_absolute-center">
+                    <lightning:button label="Previous" disabled="{!v.offset == 0}"  onclick="{!c.previousPage}" />    
+                </div>            
+            </div>
+            <div class = "slds-col">      
+                <div id = "rightAlligment">
+                    <lightning:button label="Next" disabled="{!v.pageLastElement >= v.totalSize-1}" onclick="{!c.nextPage}" >
+                        
+                    </lightning:button>
+                </div>          
+            </div>
+        </div>
+</aura:component>	

@@ -1,0 +1,49 @@
+<aura:component controller = "ProductManager" access ="global">
+        
+        <aura:handler name="init" value="{!this}" action="{!c.init}" /> 
+        <aura:handler name = "FiltersApplyed" event="c:FiltersApplyedEvent" action="{!c.setProducts}"/> 
+        <aura:handler name = "productSelected" event="c:ProductSelectedEvent" action="{!c.showSelectedProduct}"/>
+        <aura:handler name = "" event="c:TurnPageEvent" action="{!c.turnPageEventHandler}"/>
+        
+
+        <aura:attribute name="spinner" type="boolean" default="FALSE"/>
+        <aura:attribute name="isMapOpen" type="boolean" default="true"/>
+        <aura:attribute name="productsList" type="List"/>
+        <aura:attribute name="selectedProduct" type="Product2"/>
+        <aura:attribute name="selectedProductPrice" type="Integer"/>
+        <aura:attribute name="isOrderOpen" type="Boolean" default="false" />
+        <aura:attribute name="something" type="Boolean" default="false" />
+        <aura:attribute name="offset" type="Integer" default="0" />
+        <aura:attribute name="limits" type="Integer" default="4" />
+
+        <div>   
+            <c:MainMenuComponent/>
+        </div>
+        <div class="slds-box" >
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-6">
+                    <c:SortingMenuComponent aura:id = "sortingComponent"/> 
+                </div>
+                <div class="slds-col slds-size_4-of-6 slds-scrollable">
+                    <c:ProductViewComponent productsList="{!v.productsList}"/>
+                </div>
+                <div class="slds-col slds-size_1-of-6">
+                    <aura:if isTrue="{!v.selectedProduct}">
+                        <c:ProductDescription product="{!v.selectedProduct}" productPrice="{!v.selectedProductPrice}"/>
+                    </aura:if>
+            </div>
+            <div>
+            </div>
+        </div>
+        <div>
+            
+            <aura:if isTrue="{!v.isMapOpen}">
+                <c:ModalWindowComponent >
+                    <aura:set attribute = "body">
+                        <c:GoogleMapComponent />
+                    </aura:set>
+                </c:ModalWindowComponent>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

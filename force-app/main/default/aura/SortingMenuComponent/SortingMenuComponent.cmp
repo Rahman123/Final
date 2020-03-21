@@ -1,0 +1,40 @@
+<aura:component controller = "ProductManager">
+
+    <aura:registerEvent name ="FiltersApplyed" type="c:FiltersApplyedEvent"/>
+    <aura:method name = "selectProducts" action="{!c.getFilterForTurnPage}">
+        <aura:attribute name="offset" type="Integer"/>
+    </aura:method> 
+    <aura:attribute name="name" type="String"  />
+    <aura:attribute name="maxPrice" type="String"  />
+    <aura:attribute name="catigory" type="String"  />
+    <aura:attribute name="maxDistance" type="String" />
+
+    <div class="slds-box">
+        <lightning:input
+        label="{!$Label.c.Name}" 
+        value="{!v.name}"
+        onchange = "{!c.sort}"
+        /> 
+        <lightning:input
+        label="{!$Label.c.MaxPrice}" 
+        value="{!v.maxPrice}"
+        onchange = "{!c.sort}"
+        type="Number"
+        min = "0"
+        rangeUnderflow = "more than 0!"
+        />
+        <lightning:input
+        label="{!$Label.c.Catigory}"
+        value="{!v.catigory}"     
+        onchange = "{!c.sort}"
+        />
+        <lightning:input
+        type="Number"
+        label="{!$Label.c.MaxDistance}"
+        value="{!v.maxDistance}"
+        onchange = "{!c.sort}" 
+        min = "0"
+        rangeUnderflow = "more than 0!"
+        />
+    </div>
+</aura:component>

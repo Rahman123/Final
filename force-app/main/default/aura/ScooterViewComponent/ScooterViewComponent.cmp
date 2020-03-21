@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:handler name = "init" value = "{!this}" action = "{!c.doInit}"/>
+    <aura:attribute name="product" type="Product2"/>
+    <aura:attribute name="productPrice" type="String"/>
+    <aura:registerEvent name = "productSelected" type="c:ProductSelectedEvent"/>
+
+    <div onclick="{!c.productSelectedHandler}" >
+        <lightning:card title="{!v.product.Name}">
+            <lightning:layout horizontalAlign="left" verticalAlign="start">
+                <lightning:layoutItem size = "4"> 
+                    <img src="{!$Resource.ElectricScooterImage}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4" padding="around-small">
+                    Price: <lightning:badge label="{!v.productPrice}" />
+                    <aura:if isTrue="{!v.product.Description}">
+                        <lightning:badge label="{!v.product.Description}" />
+                    </aura:if>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:card>
+    </div>
+    
+</aura:component>	

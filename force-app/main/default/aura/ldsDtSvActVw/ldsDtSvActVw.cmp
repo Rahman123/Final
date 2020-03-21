@@ -1,0 +1,12 @@
+<aura:component >
+    
+    <aura:attribute name = "accountId" type = "Id" access = "public" />
+    
+    <lightning:recordForm
+        recordId="{!v.accountId}"
+        objectApiName="Account"
+        layoutType="Full"
+        mode="view">
+
+</lightning:recordForm>
+</aura:component>

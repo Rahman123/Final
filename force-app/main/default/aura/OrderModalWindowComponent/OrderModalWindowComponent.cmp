@@ -1,0 +1,42 @@
+<aura:component controller = "OpportunityManager">
+
+    <aura:attribute name="isWindowOpen" type="Boolean" default="false" />
+    <aura:attribute name = "product" type = "Product2" />
+    <aura:attribute name="emailAttr" type="String"/>
+    <aura:attribute name="lastNameAttr" type="String"/>
+    <aura:attribute name="firstNameAttr" type="String"/>
+    <aura:attribute name="phoneAttr" type="String"/>
+
+    <aura:if isTrue="{!v.isWindowOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close"
+                onclick="{! c.closeWindow }"
+                alternativeText="close"
+                variant="bare-inverse"
+                class="slds-modal__close"/>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">About Sfdcmonkey.com</h2>
+            </header>
+            <!--###### MODAL BOX BODY Part Start######-->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <c:DisplayScooterDataComponent product="{!v.product}"/>
+                <lightning:input type="text" name="lastName" label="LastName" value = "{!v.lastNameAttr}"/>
+                <lightning:input type="text" name="firstName" label="FirstName" value = "{!v.firstNameAttr}"/>
+                <lightning:input type="email" name="email" label="Email" value = "{!v.emailAttr}"/>
+                <lightning:input type="tel" name="phone" label="Phone" pattern="[0-9]{3}[0-9]{2}[0-9]{7}" value = "{!v.phoneAttr}" />
+        </div>
+        <!--###### MODAL BOX FOOTER Part Start ######-->
+            <footer class="slds-modal__footer">
+                <lightning:button variant="brand" 
+                    label="Buy"
+                    title="Buy"
+                    onclick="{! c.orderProducts }"/>
+            </footer>
+            </div>
+            </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+</aura:component>	

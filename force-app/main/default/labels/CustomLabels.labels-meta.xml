@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AccountPageFlowCardTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountPageFlowCardTitle</shortDescription>
+        <value>Fast creating cantact</value>
+    </labels>
+    <labels>
+        <fullName>AccountPageFlowErrorMessange</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message</shortDescription>
+        <value>RecordId or ObjectType does not exist/match</value>
+    </labels>
+    <labels>
+        <fullName>CheckNumberSimpleInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CheckNumberSimpleInfo</shortDescription>
+        <value>Click calculate to check if the entrered number is simple</value>
+    </labels>
+    <labels>
+        <fullName>EForceEventTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EForceEventTitle</shortDescription>
+        <value>Result</value>
+    </labels>
+    <labels>
+        <fullName>InputNumberTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InputNumberTitle</shortDescription>
+        <value>Enter number</value>
+    </labels>
+    <labels>
+        <fullName>Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FlowError</shortDescription>
+        <value>This feature is for Accounts!</value>
+    </labels>
+    <labels>
+        <fullName>NumberIsNotSimpleMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NumberIsNotSimpleMessage</shortDescription>
+        <value>Number is not simple!</value>
+    </labels>
+    <labels>
+        <fullName>NumberIsSimple</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NumberIsSimple</shortDescription>
+        <value>is SIMPLE</value>
+    </labels>
+    <labels>
+        <fullName>NumberShouldBePositive</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NumberShouldBePositive</shortDescription>
+        <value>Number should be natural</value>
+    </labels>
+    <labels>
+        <fullName>SObjectNameForHM1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SObjectNameAccount</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>TitleNumberIsSimpleCard</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TitleNumberIsSimpleCard</shortDescription>
+        <value>Is number simple</value>
+    </labels>
+    <labels>
+        <fullName>sObjectAccount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>sObjectNameAccount</shortDescription>
+        <value>Account</value>
+    </labels>
+</CustomLabels>

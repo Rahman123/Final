@@ -1,0 +1,40 @@
+<aura:component>
+    <aura:handler name = "init" value = "{!this}" action = "{!c.doInit}"/>
+    <aura:attribute name="product" type="Product2"/>
+    <aura:attribute name="productPrice" type="Integer"/>
+
+    
+    <lightning:recordViewForm recordId="{!v.product.Id}" objectApiName="Product2">
+        <div class="slds-box">
+            <ul class="slds-has-dividers_top-space">
+                <li class="slds-item">
+                    <lightning:outputField fieldName="Name" /> 
+                </li>
+                <li class="slds-item">
+                    {!$Label.c.productPrice}: {!v.productPrice}                    
+                </li>
+                <li class="slds-item">
+                    <lightning:outputField fieldName="Catigory__c" />
+                </li>
+                <li class="slds-item">
+                    <lightning:outputField fieldName="MaxSpeed__c" />   
+                </li>
+                <li class="slds-item">
+                    <lightning:outputField fieldName="MaxWeight__c" />
+                </li>
+                <li class="slds-item">      
+                    <lightning:outputField fieldName="Color__c" />
+                </li>
+                <li class="slds-item">
+                    <lightning:outputField fieldName="TravelDistance__c" />
+                </li>
+                <li class="slds-item">
+                    <lightning:outputField fieldName="BataryCapacity__c" />
+                </li>
+                <li class="slds-item">
+                    <lightning:outputField fieldName="ChargingTime__c" />
+                </li>
+            </ul>
+        </div>
+    </lightning:recordViewForm>
+</aura:component>	
