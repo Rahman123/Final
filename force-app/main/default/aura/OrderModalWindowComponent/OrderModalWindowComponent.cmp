@@ -1,42 +1,80 @@
-<aura:component controller = "OpportunityManager">
+<aura:component controller="OpportunityController">
 
-    <aura:attribute name="isWindowOpen" type="Boolean" default="false" />
-    <aura:attribute name = "product" type = "Product2" />
-    <aura:attribute name="emailAttr" type="String"/>
-    <aura:attribute name="lastNameAttr" type="String"/>
-    <aura:attribute name="firstNameAttr" type="String"/>
-    <aura:attribute name="phoneAttr" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="isOrderWindowOpenedEvent" type="c:BooleanShippedEvent" />
 
-    <aura:if isTrue="{!v.isWindowOpen}">
-        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
-            <div class="slds-modal__container">
-                <!-- ###### MODAL BOX HEADER Start ######-->
-                <header class="slds-modal__header">
-                <lightning:buttonIcon iconName="utility:close"
-                onclick="{! c.closeWindow }"
-                alternativeText="close"
-                variant="bare-inverse"
-                class="slds-modal__close"/>
-                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">About Sfdcmonkey.com</h2>
+    <aura:attribute name="product" type="Product2" />
+    <aura:attribute name="isWindowOpen" type="boolean" />
+    <aura:attribute name="productPrice" type="Decimal" />
+
+    <aura:attribute name="lastNameAttr" type="String" />
+    <aura:attribute name="firstNameAttr" type="String" />
+    <aura:attribute name="emailAttr" type="String" />
+    <aura:attribute name="phoneAttr" type="String" />
+    <aura:attribute name="streerAttr" type="String" />
+    <aura:attribute name="cityAttr" type="String" />
+    <aura:attribute name="postCodeAttr" type="String" />
+    <aura:attribute name="deliveryTypes" type="List" />
+    <aura:attribute name="outlets" type="List" />
+    <aura:attribute name="selectedDeliveryType" type="String" />
+    <aura:attribute name="selectedOutlet" type="String" />
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal  slds-modal_large slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- ###### MODAL BOX HEADER Start ######-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close" onclick="{! c.closeWindow }" alternativeText="close"
+                    variant="bare-inverse" class="slds-modal__close" />
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><strong>Product ordering
+                        window</strong></h2>
             </header>
             <!--###### MODAL BOX BODY Part Start######-->
             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                <c:DisplayScooterDataComponent product="{!v.product}"/>
-                <lightning:input type="text" name="lastName" label="LastName" value = "{!v.lastNameAttr}"/>
-                <lightning:input type="text" name="firstName" label="FirstName" value = "{!v.firstNameAttr}"/>
-                <lightning:input type="email" name="email" label="Email" value = "{!v.emailAttr}"/>
-                <lightning:input type="tel" name="phone" label="Phone" pattern="[0-9]{3}[0-9]{2}[0-9]{7}" value = "{!v.phoneAttr}" />
-        </div>
-        <!--###### MODAL BOX FOOTER Part Start ######-->
-            <footer class="slds-modal__footer">
-                <lightning:button variant="brand" 
-                    label="Buy"
-                    title="Buy"
-                    onclick="{! c.orderProducts }"/>
-            </footer>
-            </div>
-            </section>
-        <div class="slds-backdrop slds-backdrop_open"></div>
-    </aura:if>
+                <lightning:layout horizontalAlign="center" verticalAlign="center" multipleRows="true">
+                    <lightning:layoutItem size="3">
+                        <c:DisplayScooterDataComponent product="{!v.product}" productPrice="{!v.productPrice}" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="9">
 
-</aura:component>	
+                        <lightning:input type="text" name="lastName" label="LastName" value="{!v.lastNameAttr}" />
+                        <lightning:input type="text" name="firstName" label="FirstName" value="{!v.firstNameAttr}" />
+                        <lightning:input type="email" name="email" label="Email" value="{!v.emailAttr}" />
+                        <lightning:input type="tel" name="phone" label="Phone" value="{!v.phoneAttr}" />
+
+                        <lightning:select aura:id="deliveryTypeChoise" label="Delivery type" required="false"
+                            onchange="{!c.onDeliveryTypesChanged}">
+                            <aura:iteration items="{!v.deliveryTypes}" var="item">
+                                <option text="{!item.key}" value="{!item.value}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <aura:if isTrue="{!v.selectedDeliveryType == 'Pickup'}">
+                            <lightning:select aura:id="outletField" label="Outlet" required="false"
+                                onchange="{!c.onOutletFieldChanged}">
+                                <aura:iteration items="{!v.outlets}" var="item">
+                                    <option text="{!item.key}" value="{!item.value}"></option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </aura:if>
+                        <aura:if isTrue="{!v.selectedDeliveryType == 'Courier'}">
+                            <lightning:inputAddress aura:id="addressFields" addressLabel="Address" streetLabel="Street"
+                                cityLabel="City" countryLabel="Country" provinceLabel="State" postalCodeLabel="Zip Code"
+                                street="{!v.streetAttr}" city="{!v.cityAttr}" country="US" province="CA" postalCode="94105"
+                                showAddressLookup="true" />
+                        </aura:if>
+                        <aura:if isTrue="{!v.selectedDeliveryType == 'Post'}">
+                            <lightning:input type="text" name="postCode" label="Post/Zip code" value = "{!v.postCodeAttr}"/>
+                        </aura:if>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+            <!--###### MODAL BOX FOOTER Part Start ######-->
+            <footer class="slds-modal__footer">
+                <lightning:button variant="brand" label="Buy" title="Buy" 
+                disabled="{!or(or(or(!v.lastNameAttr,!v.firstNameAttr),or(!v.emailAttr,!v.phoneAttr) ),and(and(and(!v.streetAttr,!v.cityAttr),!v.postCodeAttr),!v.selectedOutlet) )}" onclick="{! c.orderProductsMethod }" />
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+
+</aura:component>

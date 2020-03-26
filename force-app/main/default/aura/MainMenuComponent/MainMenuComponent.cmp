@@ -1,17 +1,21 @@
 <aura:component >
 
-    <aura:registerEvent name = "mapOpened" type = "c:OutletsMapOpenedEvent" />
+    <aura:registerEvent name = "outletsMapOpened" type = "c:BooleanShippedEvent" />
+    <aura:registerEvent name = "isCompareWindowOpenedEvent" type = "c:BooleanShippedEvent" />
+    <aura:registerEvent name = "isCaseModalWindowOpenEvent" type = "c:BooleanShippedEvent" />
+    <aura:registerEvent name = "currencyChangedEvent" type = "c:StringShippedEvent" />
 
     <div class="slds-box">
-        <lightning:buttonMenu aura:id="id" label="{!$Label.c.Currency}" onselect="{! c.foo }" variant="border" alternativeText="Show menu">
-            <lightning:menuItem value="USD" label="Russian" />
-            <lightning:menuItem value="RUB" label="English" />
+        <lightning:buttonMenu aura:id="currencyMenu" label="{#$Label.c.Currency}" onselect="{! c.currencySelected }" variant="border" alternativeText="Show menu">
+            <lightning:menuItem value="USD" label="USD" />
+            <lightning:menuItem value="BYN" label="RUB" />
         </lightning:buttonMenu>
-        <lightning:buttonMenu aura:id="id" label="{!$Label.c.Language}" onselect="{! c.foo }" variant="border" alternativeText="Show menu">
+        <lightning:buttonMenu aura:id="id" label="{#$Label.c.Language}" onselect="{! c.foo }" variant="border" alternativeText="Show menu">
             <lightning:menuItem value="Russian" label="Russian" />
             <lightning:menuItem value="English" label="English" />
         </lightning:buttonMenu>
-        <lightning:button label="{!$Label.c.AboutUs}" onclick = "{!c.aboutUsClicked}"/>
-        <lightning:button label="{!$Label.c.Compare}"/>
+        <lightning:button label="{#$Label.c.AboutUs}" onclick = "{!c.aboutUsClicked}"/>
+        <lightning:button label="{#$Label.c.Compare}" onclick="{!c.compareClicked}"/>
+        <lightning:button label="{#$Label.c.Help}" onclick="{!c.helpClicked}"/>
     </div>
 </aura:component>

@@ -1,0 +1,6 @@
+<apex:page controller="PDFController" showHeader="false" renderas="pdf">
+
+    some fucking text
+
+
+</apex:page>

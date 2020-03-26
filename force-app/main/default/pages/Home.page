@@ -1,9 +1,22 @@
-<apex:page showHeader="false" standardStylesheets="false">
+<apex:page controller="PDFController" showHeader="false" standardStylesheets="false" >
     <apex:includeLightning />
+    <apex:pageMessages />
     <div id="lightning"/>
-    <script>
-    	$Lightning.use("c:ShopApplication",function(){
-        	$Lightning.createComponent("c:ShopApplicationMainComponent",{},"lightning",null);    
+
+    <script>    
+        $Lightning.use("c:ShopApplication",function(){
+            $Lightning.createComponent("c:ShopApplicationMainComponent",{},"lightning",
+            function(component){
+                $A.eventService.addHandler({"event" : "c:SendDataToVFEvent","handler" : retriveEventData})
+            });    
         });
+        function retriveEventData(event) {
+            let productsList = event.getParam('products');
+            alert(productsList);
+            jsGeneratePDF();
+            alert('yes');
+        }
+
     </script>
+    
 </apex:page>

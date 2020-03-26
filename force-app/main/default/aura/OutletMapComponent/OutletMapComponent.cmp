@@ -1,3 +1,8 @@
-<aura:component>
+<aura:component controller="OutletManager">
 
-</aura:component>	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="mapMarkers" type="Object[]" />
+
+    <lightning:map mapMarkers="{! v.mapMarkers }" markersTitle="{!$Label.c.OutOutlets}" />
+
+</aura:component>

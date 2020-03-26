@@ -1,0 +1,50 @@
+<aura:component>
+
+    <aura:registerEvent name="isCompareWindowOpenedEvent" type="c:BooleanShippedEvent" />
+    <aura:attribute name="productsList" type="Product2[]" />
+    <aura:attribute name="currencyRate" type="Object" />
+
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal  slds-modal_large slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- ###### MODAL BOX HEADER Start ######-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close" onclick="{! c.closeWindow }" alternativeText="close"
+                    variant="bare-inverse" class="slds-modal__close" />
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                    <strong>{#$Label.c.CompareRoom}</strong></h2>
+            </header>
+            <!--###### MODAL BOX BODY Part Start######-->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="slds-scrollable" style="height:100%;width:100%">
+                    <!-- <aura:if isTrue="{!v.productList}"> -->
+                        <lightning:layout horizontalAlign="left" verticalAlign="center" multipleRows="false">
+                            <aura:iteration items="{!v.productsList}" var="product" indexVar="key">
+                                <lightning:layoutItem flexibility="shrink" size="3">
+                                    <div class="slds-m-around_xx-small ">
+                                        <c:DisplayCompareProductComponent product="{!product}"  currencyRate="{!v.currencyRate}"/>
+                                    </div>
+                                </lightning:layoutItem>
+                            </aura:iteration>
+                        </lightning:layout>
+                        <!-- <aura:set attribute="else">
+                            <div class="slds-text-align_center">
+                                <div class="slds-text-heading_large">
+                                    <div class="slds-text-color_destructive">
+                                        {#$Label.c.EmprtyCompare}
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:set>
+                    </aura:if> -->
+                </div>
+            </div>
+            <!--###### MODAL BOX FOOTER Part Start ######-->
+            <footer class="slds-modal__footer">
+                <lightning:button variant="brand" label="Cancel" title="Cancel" onclick="{! c.closeWindow }" />
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

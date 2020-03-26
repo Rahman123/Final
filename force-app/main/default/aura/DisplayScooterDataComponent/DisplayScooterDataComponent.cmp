@@ -1,40 +1,81 @@
-<aura:component>
-    <aura:handler name = "init" value = "{!this}" action = "{!c.doInit}"/>
-    <aura:attribute name="product" type="Product2"/>
-    <aura:attribute name="productPrice" type="Integer"/>
+<aura:component controller = "ProductController">
+    <aura:attribute name="product" type="Product2" default="null"/>
+    <aura:attribute name="productPrice" type="Integer" default="1"/>
+    <aura:attribute name="currencyRate" type="Object" />
 
-    
-    <lightning:recordViewForm recordId="{!v.product.Id}" objectApiName="Product2">
-        <div class="slds-box">
-            <ul class="slds-has-dividers_top-space">
-                <li class="slds-item">
-                    <lightning:outputField fieldName="Name" /> 
-                </li>
-                <li class="slds-item">
-                    {!$Label.c.productPrice}: {!v.productPrice}                    
-                </li>
-                <li class="slds-item">
-                    <lightning:outputField fieldName="Catigory__c" />
-                </li>
-                <li class="slds-item">
-                    <lightning:outputField fieldName="MaxSpeed__c" />   
-                </li>
-                <li class="slds-item">
-                    <lightning:outputField fieldName="MaxWeight__c" />
-                </li>
-                <li class="slds-item">      
-                    <lightning:outputField fieldName="Color__c" />
-                </li>
-                <li class="slds-item">
-                    <lightning:outputField fieldName="TravelDistance__c" />
-                </li>
-                <li class="slds-item">
-                    <lightning:outputField fieldName="BataryCapacity__c" />
-                </li>
-                <li class="slds-item">
-                    <lightning:outputField fieldName="ChargingTime__c" />
-                </li>
-            </ul>
-        </div>
-    </lightning:recordViewForm>
-</aura:component>	
+
+    <ul class="slds-has-dividers_top">
+        <li class="slds-item">
+           <c:AttachmentImageComponent attachments="{!v.product.Attachments}" />
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    {!v.product.Name}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    {!$Label.c.productPrice}:
+                    {!mult(v.productPrice,v.currencyRate.value)} {!v.currencyRate.label}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    Catigory:
+                    {!v.product.Catigory__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    Max speed:
+                    {!v.product.MaxSpeed__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    Max weight:
+                    {!v.product.MaxWeight__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    Color:
+                    {!v.product.Color__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    Travel distance:
+                    {!v.product.TravelDistance__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    Batary capacity:
+                    {!v.product.BataryCapacity__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                <div class="slds-text-color_inverse">
+                    Charging time:
+                    {!v.product.ChargingTime__c}
+                </div>
+            </div>
+        </li>
+    </ul>
+</aura:component>

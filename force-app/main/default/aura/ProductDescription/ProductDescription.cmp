@@ -1,13 +1,16 @@
-<aura:component controller = "OpportunityService">
+<aura:component >
 
+    <aura:registerEvent name = "isOrderWindowOpenedEvent" type = "c:BooleanShippedEvent" />
+    <aura:registerEvent name = "addProductToCompareListEvent" type = "c:ProductShippedEvent" />
     <aura:attribute name="product" type="Product2"/>
-    <aura:attribute name="isOrderWindowOpen" type="Boolean" default="false" />
     <aura:attribute name="productPrice" type="Integer"/>
+    <aura:attribute name="currencyRate" type="Object" />
 
-    <c:DisplayScooterDataComponent product = "{!v.product}" productPrice = "{!v.productPrice}"/>
-    <c:OrderModalWindowComponent product="{!v.product}" isWindowOpen="{!v.isOrderWindowOpen}"/>
 
-    <lightning:button variant="success" label="Buy Now" onclick="{!c.orderProductClicked}"/>
-   
+    <c:DisplayScooterDataComponent product = "{!v.product}" productPrice = "{!v.productPrice}" currencyRate="{!v.currencyRate}"/>
 
+    <lightning:button class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch" variant="success" label="Buy Now" onclick="{!c.orderProductClicked}"/>
+    <lightning:button class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch" variant="success" label="Add to compare" onclick="{!c.addToCompareClicked}"/>
+    
 </aura:component>	
+<!--  -->

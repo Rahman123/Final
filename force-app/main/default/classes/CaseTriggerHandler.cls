@@ -12,24 +12,25 @@ public with sharing class CaseTriggerHandler extends TriggerHandler{
         }
 
         
-        for (Lead item : [SELECT Id,Email FROM Lead WHERE Email IN :emails]){
+        for (Lead lead : [SELECT Id,Email FROM Lead WHERE Email IN :emails]){
             for (Case itemCase : (List<Case>)Trigger.new) {
-                if(itemCase.SuppliedEmail == item.Email){
-                    itemCase.Lead__c = item.Id;
+                if(itemCase.SuppliedEmail == lead.Email){
+                    itemCase.Lead__c = lead.Id;
+                    emails.remove(emails.indexOf(lead.Email));
                     break;
                 }
-            }
+            }   
         }
-        for (Contact item : [SELECT Id,Email FROM Contact WHERE Id IN :emails]){
+        for (Contact contact : [SELECT Id,Email FROM Contact WHERE Email IN :emails]){
             for (Case itemCase : (List<Case>)Trigger.new) {
-                if(itemCase.SuppliedEmail == item.Email){
-                    itemCase.ContactId = item.Id;
+                if(itemCase.SuppliedEmail == contact.Email){
+                    itemCase.ContactId = contact.Id;
                     break;
                 }else{
                     Lead lead = new Lead(
-                    Email = item.SuppliedEmail,
+                    Email = itemCase.SuppliedEmail,
                     LastName = 'question',
-                    Company = 'asd'
+                    Company = 'question'
                         );
                 newLeads.add(lead);
                 }

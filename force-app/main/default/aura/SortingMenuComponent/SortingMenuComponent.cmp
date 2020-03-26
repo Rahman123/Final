@@ -1,4 +1,4 @@
-<aura:component controller = "ProductManager">
+<aura:component >
 
     <aura:registerEvent name ="FiltersApplyed" type="c:FiltersApplyedEvent"/>
     <aura:method name = "selectProducts" action="{!c.getFilterForTurnPage}">
@@ -11,12 +11,12 @@
 
     <div class="slds-box">
         <lightning:input
-        label="{!$Label.c.Name}" 
+        label="{#$Label.c.Name}" 
         value="{!v.name}"
         onchange = "{!c.sort}"
         /> 
         <lightning:input
-        label="{!$Label.c.MaxPrice}" 
+        label="{#$Label.c.MaxPrice}" 
         value="{!v.maxPrice}"
         onchange = "{!c.sort}"
         type="Number"
@@ -24,13 +24,13 @@
         rangeUnderflow = "more than 0!"
         />
         <lightning:input
-        label="{!$Label.c.Catigory}"
+        label="{#$Label.c.Catigory}"
         value="{!v.catigory}"     
         onchange = "{!c.sort}"
         />
         <lightning:input
         type="Number"
-        label="{!$Label.c.MaxDistance}"
+        label="{#$Label.c.MaxDistance}"
         value="{!v.maxDistance}"
         onchange = "{!c.sort}" 
         min = "0"

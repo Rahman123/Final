@@ -1,0 +1,15 @@
+<aura:component controller = "CaseController">
+
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="subject" type="String" />
+    <aura:attribute name="body" type="String" />
+
+    <div class = "slds-box">
+        <lightning:input type="Email" name="email" label="Contact email" value = "{!v.email}"/>
+        <lightning:input type="Text" name="subject" label="Subject" value = "{!v.subject}"/>
+        <div class="slds-p-around_small">
+            <lightning:inputRichText value="{!v.body}" placeholder="Type your question / suggestion"/>
+        </div>
+        <lightning:button variant="success" label="Submit" onclick="{! c.submit }"/>
+    </div>
+</aura:component>	
