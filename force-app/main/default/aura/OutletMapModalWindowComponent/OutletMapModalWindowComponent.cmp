@@ -1,10 +1,7 @@
 <aura:component>
-    <aura:registerEvent name="outletsMapOpened" type="c:BooleanShippedEvent" />
-
+    <aura:registerEvent name="isOutletsMapOpenedEvent" type="c:BooleanShippedEvent" />
 
     <div class="slds-m-around_xx-large">
-        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
-
         <!--###### MODAL BOX Start######-->
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
@@ -13,7 +10,7 @@
                 <header class="slds-modal__header">
                     <lightning:buttonIcon iconName="utility:close" onclick="{! c.closeModel }" alternativeText="close"
                         variant="bare-inverse" class="slds-modal__close" />
-                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">title</h2>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{#$Label.c.OutOutlets}</h2>
                 </header>
                 <!--###### MODAL BOX BODY Part Start######-->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">

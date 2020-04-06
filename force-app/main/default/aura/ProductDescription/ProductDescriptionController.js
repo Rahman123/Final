@@ -1,13 +1,15 @@
 ({
-    orderProductClicked : function(component,event,helper){
-        let windowEvent = component.getEvent('isOrderWindowOpenedEvent');
-        windowEvent.setParam('flag',true);
-        windowEvent.fire();
-     },
-     addToCompareClicked : function(component,event,helper){
-        let windowEvent = component.getEvent('addProductToCompareListEvent');
-        windowEvent.setParam('product',component.get('v.product'));
-        windowEvent.setParam('productPrice',component.get('v.productPrice'));
-        windowEvent.fire();
-     }
-})
+  orderProductClicked: function(component, event, helper) {
+    let windowEvent = component.getEvent("isOrderWindowOpenedEvent");
+    windowEvent.setParam("flag", true);
+    windowEvent.fire();
+  },
+  addToCompareClicked: function(component, event, helper) {
+    let product = component.get('v.product'),
+        productPrice = component.get('v.productPrice');
+    let productSelectedEvent = component.getEvent("addProductToCompareListEvent");
+      productSelectedEvent.setParam("product", product);
+      productSelectedEvent.setParam("productPrice", productPrice);
+      productSelectedEvent.fire();
+  }
+});

@@ -1,5 +1,0 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
-<aura:handler name="componentEventFired" event="c:CustomEventTest" action="{!c.handleEvent}"></aura:handler>// Handler for custom event
-<aura:attribute name="ParentAttribute" type="String" default="”"></aura:attribute>//Attribute of parent component
-The ValueOf Attribute is {!v.ParentAttribute}
-</aura:component>

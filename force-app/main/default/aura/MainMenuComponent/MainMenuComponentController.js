@@ -1,23 +1,18 @@
 ({
-    aboutUsClicked : function(component, event, helper) {
-        let mapOpenedEvent = component.getEvent('outletsMapOpened');
-        mapOpenedEvent.setParam('flag',true);
-        mapOpenedEvent.fire();
-    },
-    compareClicked : function(component, event, helper) {
-        let compareOpenedEvent = component.getEvent('isCompareWindowOpenedEvent');
-        compareOpenedEvent.setParam('flag',true);
-        compareOpenedEvent.fire();
-    },
-    helpClicked : function(component, event, helper) {
-        let helpOpenedEvent = component.getEvent('isCaseModalWindowOpenEvent');
-        helpOpenedEvent.setParam('flag',true);
-        helpOpenedEvent.fire();
-    },
-    currencySelected : function(component, event, helper) {
-        let currencyChangedEvent = component.getEvent('currencyChangedEvent');
-        let value = event.getParam('value');
-        currencyChangedEvent.setParam('string',value);
-        currencyChangedEvent.fire();
-    }
-})
+  aboutUsClicked: function(component, event, helper) {
+    helper.fireEvent(component, 'isOutletsMapOpenedEvent', 'flag', true);
+  },
+  compareClicked: function(component, event, helper) {
+    helper.fireEvent(component, 'isCompareWindowOpenedEvent', 'flag', true);
+  },
+  helpClicked: function(component, event, helper) {
+    helper.fireEvent(component, 'isCaseModalWindowOpenEvent', 'flag', true);
+  },
+  downloadPDFClicked : function(component, event, helper) {
+    helper.fireEvent(component, 'downloadPDFEvent', 'string', '');
+  },
+  currencySelected: function(component, event, helper) {
+    let value = event.getParam('value');
+    helper.fireEvent(component, 'currencyChangedEvent', 'string', value);
+  }
+});

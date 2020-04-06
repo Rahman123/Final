@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>AH</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Amper / hours</shortDescription>
+        <value>A/h</value>
+    </labels>
+    <labels>
+        <fullName>AboutUs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AboutUs</shortDescription>
+        <value>About us</value>
+    </labels>
+    <labels>
         <fullName>AccountPageFlowCardTitle</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -15,11 +29,95 @@
         <value>RecordId or ObjectType does not exist/match</value>
     </labels>
     <labels>
+        <fullName>BataryCapacity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BataryCapacity</shortDescription>
+        <value>Batary capacity</value>
+    </labels>
+    <labels>
+        <fullName>Category</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Category</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>ChargingTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ChargingTime</shortDescription>
+        <value>Charging time</value>
+    </labels>
+    <labels>
         <fullName>CheckNumberSimpleInfo</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>CheckNumberSimpleInfo</shortDescription>
         <value>Click calculate to check if the entrered number is simple</value>
+    </labels>
+    <labels>
+        <fullName>ChooseAddress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ChooseAddress</shortDescription>
+        <value>Choose address</value>
+    </labels>
+    <labels>
+        <fullName>ChooseDeliveryType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ChooseDeliveryType</shortDescription>
+        <value>Choose delivery type</value>
+    </labels>
+    <labels>
+        <fullName>ChooseOutlet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ChooseOutlet</shortDescription>
+        <value>Choose outlet</value>
+    </labels>
+    <labels>
+        <fullName>ChooseStreet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ChooseStreet</shortDescription>
+        <value>Choose street</value>
+    </labels>
+    <labels>
+        <fullName>Color</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Color</shortDescription>
+        <value>Color</value>
+    </labels>
+    <labels>
+        <fullName>Compare</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Compare</shortDescription>
+        <value>Compare</value>
+    </labels>
+    <labels>
+        <fullName>CompareRoom</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CompareRoom</shortDescription>
+        <value>Compare room</value>
+    </labels>
+    <labels>
+        <fullName>Currency</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Currency</shortDescription>
+        <value>Currency</value>
+    </labels>
+    <labels>
+        <fullName>DownloadPDF</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DownloadPDF</shortDescription>
+        <value>Download as PDF</value>
     </labels>
     <labels>
         <fullName>EForceEventTitle</fullName>
@@ -29,6 +127,62 @@
         <value>Result</value>
     </labels>
     <labels>
+        <fullName>Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>EmprtyCompare</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmprtyCompare</shortDescription>
+        <value>It appears that you didn&#39;t select any items. You can do this by clicking the button in product discription.</value>
+    </labels>
+    <labels>
+        <fullName>EnterEmail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnterEmail</shortDescription>
+        <value>Enter email</value>
+    </labels>
+    <labels>
+        <fullName>EnterPhone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnterPhone</shortDescription>
+        <value>Enter phone number</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ErrorMessage</shortDescription>
+        <value>Ooops, something wrong happend. Please try again or tell us about the problem(button below).</value>
+    </labels>
+    <labels>
+        <fullName>FillEmailAndPhoneFields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FillEmailAndPhoneFields</shortDescription>
+        <value>Write your email and phone so that we can contact you</value>
+    </labels>
+    <labels>
+        <fullName>Help</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Help</shortDescription>
+        <value>Help &amp; Contact</value>
+    </labels>
+    <labels>
+        <fullName>Hours</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hours unit</shortDescription>
+        <value>h</value>
+    </labels>
+    <labels>
         <fullName>InputNumberTitle</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -36,11 +190,74 @@
         <value>Enter number</value>
     </labels>
     <labels>
+        <fullName>Kilogramms</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Kilogramms</shortDescription>
+        <value>Kg</value>
+    </labels>
+    <labels>
+        <fullName>Km</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Kilometre unit</shortDescription>
+        <value>Km</value>
+    </labels>
+    <labels>
+        <fullName>KmPerH</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Km per hours</shortDescription>
+        <value>Km/h</value>
+    </labels>
+    <labels>
+        <fullName>Language</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Language</shortDescription>
+        <value>Language</value>
+    </labels>
+    <labels>
+        <fullName>MaxDistance</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Max Distance</shortDescription>
+        <value>Max distance</value>
+    </labels>
+    <labels>
+        <fullName>MaxPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Max Price</shortDescription>
+        <value>Max price</value>
+    </labels>
+    <labels>
+        <fullName>MaxSpeed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MaxSpeed</shortDescription>
+        <value>Max speed</value>
+    </labels>
+    <labels>
+        <fullName>MaxWeight</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Max weight</shortDescription>
+        <value>Max weight</value>
+    </labels>
+    <labels>
         <fullName>Message</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>FlowError</shortDescription>
         <value>This feature is for Accounts!</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
     </labels>
     <labels>
         <fullName>NumberIsNotSimpleMessage</fullName>
@@ -64,6 +281,27 @@
         <value>Number should be natural</value>
     </labels>
     <labels>
+        <fullName>OutOutlets</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Out outlets</shortDescription>
+        <value>Out outlets</value>
+    </labels>
+    <labels>
+        <fullName>Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>PositiveNumbersOnly</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Positive numbers only</shortDescription>
+        <value>Enter positive number!</value>
+    </labels>
+    <labels>
         <fullName>SObjectNameForHM1</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -71,11 +309,88 @@
         <value>Account</value>
     </labels>
     <labels>
+        <fullName>Subject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subject</shortDescription>
+        <value>Subject</value>
+    </labels>
+    <labels>
+        <fullName>Submit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
         <fullName>TitleNumberIsSimpleCard</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>TitleNumberIsSimpleCard</shortDescription>
         <value>Is number simple</value>
+    </labels>
+    <labels>
+        <fullName>WriteAddress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WriteAddress</shortDescription>
+        <value>Write address</value>
+    </labels>
+    <labels>
+        <fullName>WriteCity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WriteCity</shortDescription>
+        <value>Write city</value>
+    </labels>
+    <labels>
+        <fullName>WriteCountry</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WriteCountry</shortDescription>
+        <value>Write country</value>
+    </labels>
+    <labels>
+        <fullName>WriteFirstName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WriteFirstName</shortDescription>
+        <value>Write your first name</value>
+    </labels>
+    <labels>
+        <fullName>WriteLastName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WriteLastName</shortDescription>
+        <value>Write your last name</value>
+    </labels>
+    <labels>
+        <fullName>WritePostCode</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WritePostCode</shortDescription>
+        <value>Write postal code</value>
+    </labels>
+    <labels>
+        <fullName>WriteProvince</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WriteProvince</shortDescription>
+        <value>Write province</value>
+    </labels>
+    <labels>
+        <fullName>WriteStreetAndHouseNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WriteStreetAndHouseNumber</shortDescription>
+        <value>Write street and house number</value>
+    </labels>
+    <labels>
+        <fullName>productPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>productPrice</shortDescription>
+        <value>Price</value>
     </labels>
     <labels>
         <fullName>sObjectAccount</fullName>

@@ -1,8 +1,2 @@
 <aura:component>
-    <lightning:card title="Main" footer="Links">
-        
-        <p class="slds-p-horizontal_small">
-            hello world
-        </p>
-    </lightning:card>
 </aura:component>	

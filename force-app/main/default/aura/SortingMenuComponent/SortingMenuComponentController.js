@@ -1,9 +1,20 @@
 ({
-    sort : function(component, event, helper) {
-      helper.fireFilterEvent(component,0);
-    },
-    getFilterForTurnPage : function(component, event, helper) {
-      let offset = event.getParam('arguments').offset;
-      helper.fireFilterEvent(component,offset);
-    }
-})
+  init: function(component, event, helper) {
+    helper.loadProductCategories(component);
+  },
+
+  sort: function(component, event, helper) {
+    helper.fireFilterEvent(component, 'filtersApplyed');
+  },
+
+  openPDF: function(component, event, helper) {
+    window.open(
+      '/apex/PDFPageToDownload?' +
+        helper.formParametersString(component)
+    );
+  },
+
+  getFilterForTurnPage: function(component, event, helper) {
+    helper.fireFilterEvent(component,'getFiltersEvent');
+  }
+});

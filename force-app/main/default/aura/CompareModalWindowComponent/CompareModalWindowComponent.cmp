@@ -1,10 +1,7 @@
 <aura:component>
-
     <aura:registerEvent name="isCompareWindowOpenedEvent" type="c:BooleanShippedEvent" />
-    <aura:attribute name="productsList" type="Product2[]" />
-    <aura:attribute name="currencyRate" type="Object" />
-
-
+    <aura:attribute name="productsList" type="List" />
+    <aura:attribute name="currency" type="Object" />
     <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
         aria-describedby="modal-content-id-1" class="slds-modal  slds-modal_large slds-fade-in-open">
         <div class="slds-modal__container">
@@ -18,17 +15,9 @@
             <!--###### MODAL BOX BODY Part Start######-->
             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                 <div class="slds-scrollable" style="height:100%;width:100%">
-                    <!-- <aura:if isTrue="{!v.productList}"> -->
-                        <lightning:layout horizontalAlign="left" verticalAlign="center" multipleRows="false">
-                            <aura:iteration items="{!v.productsList}" var="product" indexVar="key">
-                                <lightning:layoutItem flexibility="shrink" size="3">
-                                    <div class="slds-m-around_xx-small ">
-                                        <c:DisplayCompareProductComponent product="{!product}"  currencyRate="{!v.currencyRate}"/>
-                                    </div>
-                                </lightning:layoutItem>
-                            </aura:iteration>
-                        </lightning:layout>
-                        <!-- <aura:set attribute="else">
+                    <aura:if isTrue="{!not(empty(v.productsList))}">
+                        <c:DisplayCompareProductsListComponent productsList="{!v.productsList}" currency="{!v.currency}" />
+                        <aura:set attribute="else">
                             <div class="slds-text-align_center">
                                 <div class="slds-text-heading_large">
                                     <div class="slds-text-color_destructive">
@@ -37,13 +26,9 @@
                                 </div>
                             </div>
                         </aura:set>
-                    </aura:if> -->
+                    </aura:if>
                 </div>
             </div>
-            <!--###### MODAL BOX FOOTER Part Start ######-->
-            <footer class="slds-modal__footer">
-                <lightning:button variant="brand" label="Cancel" title="Cancel" onclick="{! c.closeWindow }" />
-            </footer>
         </div>
     </section>
     <div class="slds-backdrop slds-backdrop_open"></div>

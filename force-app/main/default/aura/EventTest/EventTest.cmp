@@ -1,4 +1,0 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
-<aura:registerevent name="componentEventFired" type="c:CustomEventTest"></aura:registerevent>// Event is being register in child component
-<ui:button label="EventFire" press="{!c.fireComponentEvent}"></ui:button>// Event will fired on click of this button
-</aura:component>

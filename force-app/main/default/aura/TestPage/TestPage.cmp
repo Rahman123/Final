@@ -1,9 +1,0 @@
-<aura:component >
-    <aura:attribute name="badgeLabel" access = "public" type = "String"/>
-    
-    <aura:if isTrue ="{!not(empty(!v.badgeLabel))}">
-    <lightning:card title ="Aura Card" class = "slds-m-around_medium">
-    	<lightning:badge label = "{!v.badgeLabel}"/>    
-    </lightning:card>
-    </aura:if>
-</aura:component>

@@ -1,40 +1,41 @@
-<aura:component >
+<aura:component controller="SortingMenuController" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:registerEvent name="filtersApplyed" type="c:FiltersApplyedEvent" />
+    <aura:registerEvent name="getFiltersEvent" type="c:FiltersApplyedEvent" />
+    <aura:method name="getFilters" action="{!c.getFilterForTurnPage}"/>
+    <aura:method name="getPDFFile" action="{!c.openPDF}"/>
 
-    <aura:registerEvent name ="FiltersApplyed" type="c:FiltersApplyedEvent"/>
-    <aura:method name = "selectProducts" action="{!c.getFilterForTurnPage}">
-        <aura:attribute name="offset" type="Integer"/>
-    </aura:method> 
-    <aura:attribute name="name" type="String"  />
-    <aura:attribute name="maxPrice" type="String"  />
-    <aura:attribute name="catigory" type="String"  />
+    <aura:attribute name="currencyRate" type="Object" />
+    <aura:attribute name="name" type="String" />
+    <aura:attribute name="maxPrice" type="String" />
+    <aura:attribute name="category" type="List" />
     <aura:attribute name="maxDistance" type="String" />
 
     <div class="slds-box">
-        <lightning:input
-        label="{#$Label.c.Name}" 
+        <lightning:input label="{#$Label.c.Name}" 
         value="{!v.name}"
-        onchange = "{!c.sort}"
+        oncommit = "{!c.sort}"
         /> 
         <lightning:input
         label="{#$Label.c.MaxPrice}" 
         value="{!v.maxPrice}"
-        onchange = "{!c.sort}"
+        oncommit = "{!c.sort}"
         type="Number"
         min = "0"
-        rangeUnderflow = "more than 0!"
+        messageWhenRangeUnderflow= "{#$Label.c.PositiveNumbersOnly}"
         />
-        <lightning:input
-        label="{#$Label.c.Catigory}"
-        value="{!v.catigory}"     
-        onchange = "{!c.sort}"
-        />
+        <lightning:select aura:id="categoryPicklist" label="{#$Label.c.Category}" required="false" onchange="{!c.sort}">
+            <aura:iteration items="{!v.category}" var="item">
+                <option text="{!item}" value="{!item}"></option>
+            </aura:iteration>
+        </lightning:select>
         <lightning:input
         type="Number"
         label="{#$Label.c.MaxDistance}"
         value="{!v.maxDistance}"
-        onchange = "{!c.sort}" 
+        oncommit = "{!c.sort}" 
         min = "0"
-        rangeUnderflow = "more than 0!"
+        messageWhenRangeUnderflow= "{#$Label.c.PositiveNumbersOnly}"
         />
     </div>
 </aura:component>

@@ -28,3 +28,9 @@
 .THIS.margins{
     margin: 5px 5px 5px 5px;
 }
+.THIS #exampleHolder{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}

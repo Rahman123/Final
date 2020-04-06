@@ -1,6 +1,7 @@
 <aura:component>
     <aura:attribute name="attachments" type="Attachment[]" default="null" />
+
     <aura:iteration items="{!v.attachments}" var="attach">
-        <img src = "{!'/servlet/servlet.FileDownload?file='+ attach.Id}" />
+        <img src="{!'/servlet/servlet.FileDownload?file='+ attach.Id}" />
     </aura:iteration>
-</aura:component>	
+</aura:component>

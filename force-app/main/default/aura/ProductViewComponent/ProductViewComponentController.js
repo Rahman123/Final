@@ -1,28 +1,48 @@
 ({
   init: function(component, event, helper) {
-    component.set("v.offset", 0);
-    helper.firePageTurnedEvent(component, 0);
+    helper.loadPageSizes(component);
+    helper.getProducts(component, 1, component.get('v.pageSize'), null, null);
   },
-  onProductsListChanged: function(component, event, helper) {
-    let action = component.get("c.firstPage");
-    $A.enqueueAction(action);
+
+  showProducts: function(component, event, helper) {
+      let page = component.get('v.page'),
+      filters = event.getParam('arguments').filters,
+      operators = event.getParam('arguments').operators,
+      limits = component.get('v.pageSize');
+    helper.getProducts(component, page, limits, filters, operators);
   },
-  firstPage: function(component, event, helper) {
-    component.set("v.offset", 0);
-    helper.firePageTurnedEvent(component, 0);
+
+  showSortedProducts: function(component, event, helper) {
+      let page = 1,
+      filters = event.getParam('arguments').filters,
+      operators = event.getParam('arguments').operators,
+      limits = component.get('v.pageSize');
+    helper.getProducts(component, page, limits, filters, operators);
   },
-  nextPage: function(component, event, helper) {
-    let offset = component.get("v.offset");
-    let pageSize = component.get("v.pageSize");
-    offset += pageSize;
-    component.set("v.offset", offset);
-    helper.firePageTurnedEvent(component, offset);
+
+  changePage: function(component, event, helper) {
+    let source = event.getSource().get('v.label'),
+      page = component.get('v.page');
+    switch (source) {
+      case 'Next':
+        page += 1;
+        break;
+      case 'Previous':
+        page -= 1;
+        break;
+      case 'First':
+        page = 1;
+        break;
+      case 'Last':
+        page = component.get('v.pagesAmount');
+        break;
+    }
+    component.set('v.page',page);
+    helper.firePageTurnedEvent(component, page);
   },
-  previousPage: function(component, event, helper) {
-    let offset = component.get("v.offset");
-    let pageSize = component.get("v.pageSize");
-    offset -= pageSize;
-    component.set("v.offset", offset);
-    helper.firePageTurnedEvent(component, offset);
+  
+  pageSizeChanged: function(component, event, helper) {
+    component.set('v.pageSize',component.find('pageSizesField').get('v.value'));
+    helper.getProducts(component,1,component.get('v.pageSize'),null,null);
   }
 });

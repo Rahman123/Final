@@ -1,16 +1,22 @@
-<aura:component >
+<aura:component>
 
-    <aura:registerEvent name = "isOrderWindowOpenedEvent" type = "c:BooleanShippedEvent" />
-    <aura:registerEvent name = "addProductToCompareListEvent" type = "c:ProductShippedEvent" />
-    <aura:attribute name="product" type="Product2"/>
-    <aura:attribute name="productPrice" type="Integer"/>
-    <aura:attribute name="currencyRate" type="Object" />
-
-
-    <c:DisplayScooterDataComponent product = "{!v.product}" productPrice = "{!v.productPrice}" currencyRate="{!v.currencyRate}"/>
-
-    <lightning:button class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch" variant="success" label="Buy Now" onclick="{!c.orderProductClicked}"/>
-    <lightning:button class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch" variant="success" label="Add to compare" onclick="{!c.addToCompareClicked}"/>
-    
-</aura:component>	
+    <aura:registerEvent name="isOrderWindowOpenedEvent" type="c:BooleanShippedEvent" />
+    <aura:registerEvent name="addProductToCompareListEvent" type="c:ProductShippedEvent" />
+    <aura:attribute name="product" type="Product2" />
+    <aura:attribute name="productPrice" type="Decimal" />
+    <aura:attribute name="currency" type="Object" />
+    <aura:if isTrue="{!v.product}">
+        <c:DisplayScooterDataComponent product="{!v.product}" productPrice="{!v.productPrice}"
+            currency="{!v.currency}" />
+        <lightning:button class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch"
+            variant="success" label="{#$Label.c.Order}" onclick="{!c.orderProductClicked}" />
+        <lightning:button class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch"
+            variant="success" label="{#$Label.c.AddToCompare}" onclick="{!c.addToCompareClicked}" />
+        <aura:set attribute="else">
+            <div class = "slds_aligment-center">
+                {#$Label.c.ScooterDiscription}
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>
 <!--  -->
