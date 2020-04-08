@@ -21,7 +21,7 @@ public without sharing class ProductController{
 		}
 		// auto creation of a string
 		String query = SOQLQueryCreator.createSOQLQueryString(Constants.ALL_PRODUCT2_FIELDS_CONST, 'Product2', filters, operators);
-		// sort by price (add subQuery to WHERE block)
+		// sort by price (add subQuery to WHERE block) ---> specific field
 		if (maxPrice != ''){
 			Map<String, String> subQueryFilters = new Map<String, String>();
 			subQueryFilters.put('UnitPrice', maxPrice);
@@ -46,7 +46,6 @@ public without sharing class ProductController{
 		// return the wrapper class instance .
 		return obj;
 	}
-
 	@AuraEnabled(cacheable = true)
 	public static String getAttachedImage(String parentId){
 		List<Attachment> att = [SELECT Id
@@ -60,13 +59,13 @@ public without sharing class ProductController{
 	}
 	@AuraEnabled
 	public static List<Decimal> getPageSizes(){
-		List<PageSizes__c> sizes = PageSizes__c.getAll().values();
-		List<Decimal> s = new List<Decimal>();
-		for (PageSizes__c ps : sizes) {
-			s.add(ps.Size__c);
+		List<PageSizes__c> pageSizes = PageSizes__c.getAll().values();
+		List<Decimal> sizesToSend = new List<Decimal>();
+		for (PageSizes__c ps : pageSizes) {
+			sizesToSend.add(ps.Size__c);
 		}
-		s.sort();
-		return s;
+		sizesToSend.sort();
+		return sizesToSend;
 	}
 	@AuraEnabled(cacheable = true)
 	public static Decimal getCurrencyRate(String currencyName){

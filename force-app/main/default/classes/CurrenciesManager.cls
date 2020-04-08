@@ -9,8 +9,13 @@ global with sharing class CurrenciesManager {
                 curr.Rate__c = value;
             }
         }
-        update allCurrencies;
+        try{
+            update allCurrencies;
+        }catch(DmlException ex){
+            System.debug(ex.getMessage());
+        }
     }
+    
     public static Map<String,Decimal> getAllCurrencies(){
         Map<String,Decimal> currencyMap = new Map<String,Decimal>();
         for (Currency__c curr : Currency__c.getAll().values()) {

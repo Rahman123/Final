@@ -29,7 +29,6 @@ public with sharing class SOQLQueryCreator{
 		}
 		return query;
 	}
-
 	private static String getRequestString(String value, String operator){
 		if (operator.containsIgnoreCase('like')){
 			return 'LIKE \'%' + value + '%\'';
@@ -40,23 +39,19 @@ public with sharing class SOQLQueryCreator{
 		}
 		return '';
 	}
-
 	public static String addSubQueryFilter(String query, String fieldName, String operator, String subQuery){
 		if (query.contains('WHERE')){
 			return query += 'AND' + ' ' + fieldName + ' ' + operator + ' ' + '(' + subQuery + ')';
 		}
 		return query += 'WHERE' + ' ' + fieldName + ' ' + operator + ' ' + '(' + subQuery + ')';
 	}
-
 	public static String addLimitSectionToQuery(String query, Integer numberOfElements){
 		return query += ' ' + 'LIMIT' + ' ' + String.valueOf(numberOfElements);
 	}
-
 	public static String addOffsetSectionToQuery(String query, Integer shift){
 		return query += ' ' + 'OFFSET' + ' ' + String.valueOf(shift);
 	}
-
-	public static String addOrderBySectionToQuery(String query, String fileToOrderBy){
-		return query += ' ' + 'ORDER BY' + ' ' + fileToOrderBy;
+	public static String addOrderBySectionToQuery(String query, String fieldToOrderBy){
+		return query += ' ' + 'ORDER BY' + ' ' + fieldToOrderBy;
 	}
 }

@@ -14,23 +14,22 @@
     loadCurrenciesAction.setCallback(this, function (response) {
       let state = response.getState();
       if (state === "SUCCESS") {
-        let answer = response.getReturnValue();
+        let answer = response.getReturnValue(),
+            currencyLabels = [];
         component.set("v.currencies", answer);
-        let currencyLabels = [];
         for (let key in answer) {
-            currencyLabels.push(key);
+          currencyLabels.push(key);
         }
         component.set("v.currencyLabels", currencyLabels);
         this.sendCurrency(component, currencyLabels[0]);
-      }else if(state === 'ERROR' || state === 'INCOMPLETE'){
+      } else if (state === "ERROR" || state === "INCOMPLETE") {
         let errors = response.getError();
         if (errors) {
-            if (errors[0] && errors[0].message) {
-                console.log("Error message: " + 
-                         errors[0].message);
-            }
+          if (errors[0] && errors[0].message) {
+            console.log("Error message: " + errors[0].message);
+          }
         } else {
-            console.log("Unknown error");
+          console.log("Unknown error");
         }
       }
     });

@@ -13,16 +13,15 @@
   },
 
   showSortedProducts: function(component, event, helper) {
-      let page = 1,
-      filters = event.getParam('arguments').filters,
-      operators = event.getParam('arguments').operators,
-      limits = component.get('v.pageSize');
-    helper.getProducts(component, page, limits, filters, operators);
+      let filters = event.getParam('arguments').filters,
+          operators = event.getParam('arguments').operators,
+          limits = component.get('v.pageSize');
+    helper.getProducts(component, 1, limits, filters, operators);
   },
 
   changePage: function(component, event, helper) {
-    let source = event.getSource().get('v.label'),
-      page = component.get('v.page');
+    let source = event.getSource().get('v.title'),
+        page = component.get('v.page');
     switch (source) {
       case 'Next':
         page += 1;

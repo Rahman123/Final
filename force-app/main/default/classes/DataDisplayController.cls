@@ -1,9 +1,7 @@
 global class DataDisplayController{
     public List<Product2> PDFData{get;set;}
     public List<PricebookEntry> Prices{get;set;}
-    public List<ProductAndPriceWrapper> wrapper {get;set;}
     public String currencyLabel  {get;set;}
-
 	public DataDisplayController(){
         currencyLabel = System.currentPageReference().GetParameters().get('currencyLabel');
 		String name = System.currentPageReference().GetParameters().get('name');

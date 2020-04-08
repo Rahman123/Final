@@ -6,14 +6,28 @@
     <aura:attribute name="items" type="List" />
 
     <div class="slds-box">
-        <c:ChooseCurrencyComponent />
-        <lightning:buttonMenu aura:id="id" label="{#$Label.c.Language}" onselect="{! c.foo }" variant="border" alternativeText="Show menu">
-            <lightning:menuItem value="Russian" label="Russian" />
-            <lightning:menuItem value="English" label="English" />
-        </lightning:buttonMenu>
-        <lightning:button label="{#$Label.c.AboutUs}" onclick = "{!c.aboutUsClicked}"/>
-        <lightning:button label="{#$Label.c.Compare}" onclick="{!c.compareClicked}"/>
-        <lightning:button label="{#$Label.c.Help}" onclick="{!c.helpClicked}"/>
-        <lightning:button label="{#$Label.c.DownloadPDF}" onclick="{!c.downloadPDFClicked}"/>
+        <div class="slds-grid ">
+            <div class="slds-m-around_x-small">
+                <c:ChooseCurrencyComponent />
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:buttonMenu aura:id="id" label="{#$Label.c.Language}" variant="border" alternativeText="Show menu">
+                    <lightning:menuItem value="Русский" label="Русский" />
+                    <lightning:menuItem value="English" label="English" />
+                </lightning:buttonMenu>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.AboutUs}" onclick = "{!c.aboutUsClicked}"/>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.Compare}" onclick="{!c.compareClicked}"/>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.Help}" onclick="{!c.helpClicked}"/>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.OpenPDF}" onclick="{!c.downloadPDFClicked}"/>
+            </div>
+        </div>
     </div>
 </aura:component>

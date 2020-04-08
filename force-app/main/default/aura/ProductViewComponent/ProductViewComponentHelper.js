@@ -29,11 +29,12 @@
       limits: limits
     });
     action.setCallback(this, function(response) {
-      if (response.getState() === "SUCCESS") {
+      let state = response.getState();
+      if (state === "SUCCESS") {
         // store the response return value (wrapper class insatance)
-        let result = response.getReturnValue();
-        let productsList = [];
-        let answer = result.products;
+        let result = response.getReturnValue(),
+            productsList = [],
+            answer = result.products;
         for (let i = 0; i < answer.length; i++) {
           productsList.push({
             product: answer[i],
@@ -46,8 +47,7 @@
         component.set("v.pagesAmount", Math.ceil(result.total / limits));
         component.set("v.isSpinnerActive", false);
       } else {
-        alert("failes get products");
-        alert(response.getError().toString);
+        console.log(response.getError[0]);
       }
     });
     $A.enqueueAction(action);

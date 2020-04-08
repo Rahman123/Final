@@ -1,2 +1,4 @@
-.THIS {
+.THIS #list-item{
+    padding:0.5rem;
+    background:grey;
 }

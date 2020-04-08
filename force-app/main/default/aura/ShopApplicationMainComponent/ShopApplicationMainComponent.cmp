@@ -1,5 +1,4 @@
 <aura:component controller="ProductController" access="global">
-
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <!-- products display events -->
     <aura:handler name="filtersApplyed" event="c:FiltersApplyedEvent" action="{!c.setProducts}" />
@@ -37,16 +36,12 @@
     <aura:attribute name="isOrderModalWindowOpened" type="boolean" default="FALSE" />
     <aura:attribute name="isCompareWindowOpened" type="boolean" default="FALSE" />
     <!---->
-    <!-- chosen products (for discription and ordering) and products currency -->
+    <!-- chosen product (for description and ordering) and products currency -->
     <aura:attribute name="selectedProduct" type="Product2" />
     <aura:attribute name="selectedProductPrice" type="Decimal" />
     <!---->
-    <!-- lists of products -->
-    <aura:attribute name="productsList" type="List" />
     <aura:attribute name="compareProductsList" type="List" />
-    <!---->
-
-    <div lang="en">
+    <div>
         <!-- component with buttons at the head of the site -->
         <c:MainMenuComponent />
     </div>
@@ -69,21 +64,17 @@
         <!-- modal windows -->
         <div>
             <aura:if isTrue="{!v.isOutletsMapOpened}">
-                <!-- modal window with map of oulets inside -->
                 <c:OutletMapModalWindowComponent />
             </aura:if>
             <aura:if isTrue="{!v.isOrderModalWindowOpened}">
-                <!-- modal window wi ordering form -->
                 <c:OrderModalWindowComponent product="{!v.selectedProduct}" productPrice="{!v.selectedProductPrice}"
                     currencyRate="{!v.currencyRate}" />
             </aura:if>
             <aura:if isTrue="{!v.isCompareWindowOpened}">
-                <!-- modal window with comparing list inside -->
                 <c:CompareModalWindowComponent productsList="{!v.compareProductsList}"
                     currency="{!v.currencyRate}" />
             </aura:if>
             <aura:if isTrue="{!v.isCaseModalWindowOpen}">
-                <!-- modal window with as question form -->
                 <c:CaseModalWindowComponent />
             </aura:if>
         </div>

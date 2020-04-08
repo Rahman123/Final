@@ -14,6 +14,16 @@
                 </header>
                 <!--###### MODAL BOX BODY Part Start######-->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class = "slds-box">    
+                        <h2> Our contacts </h2>
+                        <p>
+                            {#$Label.c.Email} : semin2409@1-3fyw64t1b7aexzrsq2fh3z2i296ulidx09mn58yejchmtmy4f.2v-2j7pdeac.ap15.case.salesforce.com <br/>
+                            {#$Label.c.Phone} : +123 22 12345678 <br/> <br/>
+                            {#$Label.c.WorkingHours} :  <br/> 
+                            {#$Label.c.MondayToFriday} : 08:00 - 21:00 <br/>
+                            {#$Label.c.Saturday} 08:00 - 19:00 <br/>
+                        </p>
+                    </div>
                     <c:OutletMapComponent />
                 </div>
                 <!--###### MODAL BOX FOOTER Part Start ######-->
@@ -24,6 +34,5 @@
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>
         <!--###### MODAL BOX Part END Here ######-->
-
     </div>
 </aura:component>

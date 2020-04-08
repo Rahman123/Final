@@ -1,15 +1,14 @@
 ({
   orderProduct: function (component) {
     let product = component.get("v.product"),
-      contactType = component.get("v.SObjectName"),
-      contactId = component.get("v.Id"),
-      price = component.get("v.productPrice"),
-      deliveryType = component.get("v.selectedDeliveryType");
+        contactType = component.get("v.SObjectName"),
+        contactId = component.get("v.Id"),
+        price = component.get("v.productPrice"),
+        deliveryType = component.get("v.selectedDeliveryType");
     component.set("v.isSpinnerActive", true);
-
     if (deliveryType == "Pickup") {
-      let outlet = component.get("v.selectedOutlet");
-      let action = component.get("c.orderProductsPickup");
+      let outlet = component.get("v.selectedOutlet"),
+          action = component.get("c.orderProductsPickup");
       action.setParams({
         Id: contactId,
         Type: contactType,
@@ -32,10 +31,10 @@
       });
       $A.enqueueAction(action);
     } else if (deliveryType == "Courier") {
-      let city = component.get("v.cityAttr");
-      let street = component.get("v.streerAttr");
-      let country = component.find("addressFields").get("v.country");
-      let action = component.get("c.orderProductsCourier");
+      let city = component.get("v.cityAttr"),
+          street = component.get("v.streetAttr"),
+          country = component.find("addressFields").get("v.country"),
+          action = component.get("c.orderProductsCourier");
       action.setParams({
         Id: contactId,
         Type: contactType,
@@ -60,8 +59,8 @@
       });
       $A.enqueueAction(action);
     } else if (deliveryType == "Post") {
-      let postCode = component.get("v.postCodeAttr");
-      let action = component.get("c.orderProductsPost");
+      let postCode = component.get("v.postCodeAttr"),
+          action = component.get("c.orderProductsPost");
       action.setParams({
         Id: contactId,
         Type: contactType,
@@ -87,8 +86,8 @@
   },
 
   loadDeliveryTypes: function (component) {
-    let getDeliveryTypesAction = component.get("c.getDeliveryTypesValues");
-    let deliveryTypes = [];
+    let getDeliveryTypesAction = component.get("c.getDeliveryTypesValues"),
+        deliveryTypes = [];
     getDeliveryTypesAction.setCallback(this, function (response) {
       if (response.getState() === "SUCCESS") {
         let answer = response.getReturnValue();
@@ -103,8 +102,8 @@
   },
 
   loadOutletPoints: function (component) {
-    let deliveryPoints = [];
-    let getOutletPointsAction = component.get("c.getRelatedOutlets");
+    let deliveryPoints = [],
+        getOutletPointsAction = component.get("c.getRelatedOutlets");
     getOutletPointsAction.setCallback(this, function (response) {
       if (response.getState() === "SUCCESS") {
         let answer = response.getReturnValue();

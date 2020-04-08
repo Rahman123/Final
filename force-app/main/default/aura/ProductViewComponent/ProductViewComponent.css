@@ -10,7 +10,10 @@
     float: right;
 }
 .THIS #centerAlligment{
-    display: inline-block;
+    float: center;
+}
+.THIS #upAlligment{
+    vertical-align: top;
 }
 .THIS.container{
     display:flex;
@@ -28,7 +31,7 @@
 .THIS.margins{
     margin: 5px 5px 5px 5px;
 }
-.THIS #exampleHolder{
+.THIS #spinner{
     position: relative;
     display: inline-block;
     width: 100%;

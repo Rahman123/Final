@@ -27,7 +27,12 @@ public without sharing class LeadManager{
 	@AuraEnabled
 	public static String createNewLead( String firstName, String lastName,String email,String phone){
 		Lead newLead = new Lead(LastName = lastName, FirstName = firstName, Company = 'Customer', Email = email, Phone = phone);
-		insert newLead;
+		try{
+			insert newLead;
+		}catch(DmlException ex){
+			System.debug(ex.getMessage());
+			return;
+		}
 		return newLead.Id;
 	}
 }

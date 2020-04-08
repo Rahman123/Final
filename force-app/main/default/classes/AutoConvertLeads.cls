@@ -1,8 +1,7 @@
 public class AutoConvertLeads{
 	@InvocableMethod
 	public static void ConvertToContact(List<Id> leadIds){
-		List<Contact> newContacts = new List<Contact>();
-		List<Opportunity> opportunities = [SELECT Contact__c,    Lead__c
+		List<Opportunity> opportunities = [SELECT Contact__c,Lead__c
 		                                   FROM Opportunity
 		                                   WHERE Lead__c IN :leadIds];
 		List<Opportunity> opportunitiesToUpdate = new List<Opportunity>();

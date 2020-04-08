@@ -2,19 +2,20 @@
     <aura:attribute name="product" type="Product2" default="null" />
     <aura:attribute name="productPrice" type="Decimal" default="1" />
     <aura:attribute name="currency" type="Object" default="{'value': 1, 'label':'USD'}" />
+
     <ul class="slds-has-dividers_top">
         <li class="slds-item">
             <div class="slds-align_absolute-center">
                 <c:AttachmentImageComponent attachments="{!v.product.Attachments}" />
             </div>
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div class="list-item">
                 <div class="slds-text-color_inverse">
                     {!v.product.Name}
                 </div>
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.productPrice}:  
                     <lightning:formattedNumber value="{!div(v.productPrice,v.currency.value)}" maximumFractionDigits="2"/>
@@ -23,7 +24,7 @@
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.Category}:
                     {!v.product.Category__c}
@@ -31,7 +32,7 @@
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.MaxSpeed}:
                     {!v.product.MaxSpeed__c}
@@ -40,7 +41,7 @@
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.MaxWeight}:
                     {!v.product.MaxWeight__c}
@@ -49,7 +50,7 @@
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.Color}:
                     {!v.product.Color__c}
@@ -57,7 +58,7 @@
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.MaxDistance}:
                     {!v.product.TravelDistance__c}
@@ -66,7 +67,7 @@
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.BataryCapacity}:
                     {!v.product.BataryCapacity__c}
@@ -75,7 +76,7 @@
             </div>
         </li>
         <li class="slds-item">
-            <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div id="list-item">
                 <div class="slds-text-color_inverse">
                     {#$Label.c.ChargingTime}:
                     {!v.product.ChargingTime__c}
